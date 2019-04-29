@@ -1,0 +1,12 @@
+\documentclass[Rapport/Rapport_main.tex]{subfiles}
+\begin{document}
+\section{Analyse}
+I dette afsnit beskrives resultater af analysen. De største overvejelser for projektet har omhandlet den grafiske brugeroverfalde og databasen. De endelige valg begrundes kort for applikationen og databasen. for den fulde analyse henvises til bilaget Analyse.
+
+\subsection{Applikationstype}
+Det var et krav for systemet, at det skulle være en applikation, der kun interagere med brugere gennem en grafisk brugeroverflade. Der var tale om flere typer applikationer, samt hvorvidt den skulle være platformsuafhængig. WPF systemet blev valgt efter dets MVVM-struktureret design passede til vores behov, samt det gav et system med lav kobling mellem de forskellige lag (Presentation, Business og Data layer). 
+
+\subsection{Database}
+For at kunne opbevare brugerdata, er det nødvendigt at have en database. Hertil blev der overvejet to forskellige løsninger: En lokal database eller administreret clouddatabase. Den lokale database krævede at vi konstant skulle have en computer/enhed stående, som holdte databasen aktiv (Det er ikke let at distribuere en relationel database ud på flere maskiner). Microsoft Azure SQL database udbyder et administreret clouddatabase system, og tilbyder studieaktive x-antal hukommelse i et givet tidsinterval. Desuden er Azure også indbygget i Visual studio, hvilke er det IDE, som de fleste i gruppen bruger. \\\\
+
+\end{document}

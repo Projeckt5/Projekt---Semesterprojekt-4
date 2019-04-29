@@ -1,0 +1,62 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+\input{Setup/Preamble.tex}
+
+\def\titlename{Test}
+
+\begin{document}
+
+%===============FORSIDE======================
+\input{Setup/Forside.tex}
+\subfile{Test/Versionshistorik/Versionshistorik.tex}\newpage
+\tableofcontents
+\newpage
+
+\section{Indledning}
+Dette dokument beskriver, hvordan softwareapplikationen CarnGo testes. For at sikre, at softwaren opfører sig som forventet, opfylder kravene og kører uden fejl er det essentielt at teste softwaren grundigt. Software test skal i denne sammenhæng forstås som at man systematisk og objektivt verificerer en software enheds tilstand og opførsel baseret på nogle objektive og prædefinerede kriterier eller krav. Med systematisk og objektivt menes der, at testen skal være målbar, og det skal være muligt for en anden at gentage testen med identiske resultater. At kriterierne skal være objektive betyder, at enhver vil kunne afgøre, hvorvidt testen er udført, og der er således ikke plads til fortolkning af resultatet. 
+\\\\I det følgende beskrives de redskaber, frameworks og principper som danner grundlaget for CarnGo's software tests. Der indledes med en beskrivelse af Unit Testing og Continuous Integration, og herefter diskuteres en række begreber, som har relation til kvaliteten af testen. Endelig beskrives integrationstest for projektet, herunder integrationsmønster, Dependency Tree og den fulgte integrationsplan.
+
+\section{Unit Testing}
+En unit test er et automatiseret stykke kode som kalder den 'unit of work', der bliver testet. Den checker nogle antagelser omkring et enkelt slutresultat for denne unit. En unit test består ofte af tre hovedaktioner eller trin (mønsteret er også kendt som AAA og anvendes for hver enkelt test case):
+\begin{enumerate}
+    \item \textit{Arrange} objekter, opret og opsæt dem efter behov
+    \item \textit{Act} på et objekt, udfør aktiviteten som skal testes
+    \item \textit{Assert} at noget er som forventet
+\end{enumerate}
+Der anvendes oftest et framework til at skrive unit tests. Til at teste CarnGo er anvendt unit testing frameworket NUnit. Dette har visse fordele, eftersom det gør test cases lettere at skrive og hurtige at eksekvere ved tryk på en knap. Derudover sikrer det, at testene er pålidelige, lette at forstå og lette at vedligeholde. 
+
+\section{Continuous Integration}
+Hvis ikke man er opmærksom på løbende at integrere softwaren, kan man meget vel løbe ind i problemer, når man nærmer sig slutningen af udviklingsprocessen. For at imødekomme integrationsproblemer er der anvendt en praksis kaldet Continuous Integration. Denne praksis er ofte anvendt inden for softwareudvikling og går ud på, at teamets medlemmer integrerer ofte, og at hver integration verificeres af et automatisk build. Dermed opdages og korrigeres integrationsfejl tidligere i processen, og man minimerer risikoen for problemer senere hen. En anden fordel er, at man aldrig er langt fra et fungerende build, og som udvikler får man løbende feedback og opdaterede mål for kodens og testens kvalitet. \\\\Til projektet er Github anvendt som remote repository og Jenkins er anvendt som build server. Dette er konfigureret på en sådan vis, at Jenkins bliver triggered, når der pushes til Git serveren. Det medfører, at der startes et build job, hvor projektet bygges og tests køres. Først herefter kan der igen pulles fra serveren.
+
+\section{Test kvalitet}
+
+\subsection{Coverage}
+Når man skal sikre kvaliteten af sine tests er det ofte relevant at se på, hvor meget af applikationens kode, der er dækket af tests. Dette betegnes Test Coverage, og formålet er at finde ud af, hvilke områder af programmet, der bliver anvendt eller aktiveret i applikationens test suite. Dette giver et kvantitativt mål for, hvor 'godt' der testes, eller rettere i hvor høj grad testene dækker koden. Denne viden kan anvendes til systematisk at udvide eller tilføje test cases indtil alt applikationskoden er omfattet. \\\\Der skelnes mellem forskellige former for Test Coverage. Line Coverage giver et mål for, hvor mange linjer kode, der nås af tests. Branch Coverage er derimod et mål for, hvor mange branches, der anvendes i tests, eller om 'decision points' såsom switches og if-statements er blevet aktiveret til fulde. Der er visse ulemper forbundet med de
+forskellige former for coverage, og generelt er fuld coverage ikke ensbetydende med ingen fejl. Det er dog et simpelt og objektivt mål for kvaliteten af tests, og det kan guide udvikleren i forhold til, hvor der skal lægges en ekstra indsats. Til at beregne Line Coverage for CarnGo anvendes værktøjet dotCover, og der sigtes efter 100\% coverage.
+
+\subsection{Boundary Value Analysis}
+På grund af begrænsede ressourcer vil det oftest ikke være realistisk at lave udtømmende tests for alle sæt af test data, og særligt ikke, hvis der er mange mulige input kombinationer. Der er derfor behov for en måde, hvorpå man kan vælge sine test cases, så man arbejder med et sæt af \textit{tilstrækkelige} og \textit{nødvendige} test cases, frem for et udtømmende sæt. \\\\Boundary Value Analysis har til formål at identificere de input værdier, hvor output ændrer værdi eller validitet. Disse betegnes boundary values og ideen er at teste for inputs på begge sider af boundary values. Boundary Value Analysis gør det altså muligt for testeren at foretage et oplyst valg af input værdier, så der er større sandsynlighed for, at fejl bliver opdaget. Der vælges typisk følgende input værdier:
+
+\begin{itemize}
+    \item Minimum
+    \item Lige over minimum
+    \item En nominel (mellemliggende) værdi
+    \item Lige under maksimum
+    \item Maksimum
+\end{itemize}
+
+\subsection{Equivalence Partitions}
+Boundary Value Analysis (BVA) anvendes altid i kombination med Equivalence Partitions (PE). Equivalence Partitions er ligesom BVA en form for black-box testing, da de udelukkende betrager input og forventet output. Målet er at reducere mængden af tests gennem analyse. En EP er en del af alle mulige inputs, som resulterer i det samme output eller den samme form for opførsel. En EP er defineret af et sæt af boundary values, hvorfor BVA udføres før EP. Når Equivalence Partitions er identificeret, testes der med mindst én værdi fra hver EP (\textit{nødvendigt}). Der testes ikke med samtlige værdier fra en EP, da én eller få værdier vil være \textit{tilstrækkeligt}. Tilsammen hjælper Boundary Value Analysis og Equivalence Partitions med at sikre, at man udtænker de rigtige test cases og ikke tester for meget, og de er således et godt supplement til Coverage.
+
+\subsection{Zombie}
+
+
+
+
+\section{Integrationstest}
+
+\subsection{Dependency Tree}
+
+\subsection{Integrationsplan}
+
+\printbibliography
+\end{document}

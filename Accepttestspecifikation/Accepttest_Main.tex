@@ -1,0 +1,18 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+
+\input{Setup/Preamble.tex}
+
+\def\titlename{Accepttestspecifikation}
+
+\begin{document}
+\input{Setup/Forside.tex}
+\subfile{Accepttestspecifikation/Versionshistorik/Versionshistorik.tex}\newpage
+\tableofcontents
+\newpage
+
+%INSERT SUBFILES HERE:
+\subfile{Accepttestspecifikation/Ikke-funktionelle_krav/Ikke-funktionellekrav.tex}
+%EX \subfile{Accepttestspecifikation/Versionshistorik/Versionshistorik.tex} \newpage
+
+\printbibliography
+\end{document}

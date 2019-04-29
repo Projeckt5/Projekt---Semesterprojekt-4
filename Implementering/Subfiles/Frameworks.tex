@@ -1,0 +1,82 @@
+\documentclass[Implementering/Implementering_main.tex]{subfiles}
+
+\begin{document}
+\section{FrameWorks}
+I dette afsnit præsenteres de eksterne software biblioteker, der er blevet anvendt til at udvikle systemet, samt begrundelsen for at inkludere dem i projektet.
+
+\subsection{Prism}
+Prism\footnote{https://prismlibrary.github.io/docs/} er et open source framework, der hjælper til udviklingen af XAML applikationer så det opfylder det MVVM arkitektur pattern. 
+\subsubsection{Begrundelse}
+Da størstedelen af dette projekt omhandler udviklingen af en WPF applikation, giver det god mening at inkludere et framework, der laver en masse boiler plate kode, man ellers selv skulle skrive. Når man arbejder med MVVM er det strengt nødvendigt at anvende Commands, hvilket man får givet gennem dette framework. Derudover giver frameworket også en mulighed for kommunikation mellem ViewModels.
+\subsubsection{Anvendelse af biblioteket}
+Fra frameworket anvendes der primært den DelegateCommand-klasse, der gør det muligt at definere og binde Commands til XAML viewet. Kommandoerne inkludere både en CanExecute, der gør os som udviklere i stand til at bestemme, om kommandoen kan udføres, samt en ObservesProperty funktion, der gør kommandoen i stand til at overvåge en property.\\
+Derudover anvendes EventAggregator også, som den primære form for kommunikation mellem ViewModels. Den gør at man kan samle alle events, der går mellem ViewModels, som f.eks. en søgning fra HeaderBarViewModel, der skal sendes til SearchViewModel, på et sted. Denne anvendes i sammenspil med Unity, for at sikre at alle ViewModels får den samme instans af EventAggregator.
+
+\subsection{Unity}
+Unity\footnote{https://github.com/unitycontainer/unity/} er en Dependency Injection Container, også kaldet en Inversion Of Control Container, der faciliterer lav kobling i applikationen. Unity giver mulighed for at simplificere instantieringen af nye objekter, så andre klasser ikke skal. 
+
+\subsubsection{Begrundelse}
+Når man bygger en MVVM applikation, så er der mange Dependencies, man skal kende til, samt hvordan man tilgår dem og anvender dem. Fordelen ved at bruge en Dependency Container er, at man som udvikler ikke skal tænke særlig meget over, hvordan man får fat i de nødvendige objekter. 
+
+\subsubsection{Anvendelse af biblioteket}
+Det sted, hvor det gavner allermest i applikationen er ved oprettelsen af en ny side/view. Når der oprettes en ny side, så skal den tilhørende ViewModel oprettes, samt dens afhængigheder skal løses. Oprettelsen af en side/view med tilhørende ViewModel kan ses i listing \ref{lst:basepage}.
+
+\begin{lstlisting}[caption={Oprettelse af en side med tilhørende ViewModel}, label={lst:basepage},
+style=customc]
+ public class BasePage<TViewModel> : BasePage
+        where TViewModel : BaseViewModel
+    {
+        private TViewModel _pageViewModel;
+
+        public BasePage()
+        {
+            PageViewModel = IoCContainer.Resolve<TViewModel>();
+        }
+
+        public TViewModel PageViewModel
+        {
+            get => _pageViewModel;
+            set
+            {
+                if (_pageViewModel == value)
+                    return;
+                _pageViewModel = value;
+                DataContext = _pageViewModel;
+            }
+        }
+    }
+\end{lstlisting}
+
+Af listing \ref{lst:basepage} ses det at der i constructoren af BasePage sættes PageViewModel til \lstinline{IoCContainer.Resolve<TViewModel>()}. Det betyder, at man får IoCContainer til at finde ud af hvilke afhængigheder, som den ViewModel har, og få fat i dem alt efter nødvendighed. Det kunne eksempelvis være gennem constructor injection, hvilket kræver at afhængighederne er registreret med IoCContaineren. Det betyder også, at hvis man har de nødvendige klasser registreret rigtigt, så kan man bare putte dem som argumenter i Constructoren, og så frit anvende dem.
+
+\subsection{NUnit}
+NUnit\footnote{https://nunit.org/} er et framework for unit-testing kode for .NET. 
+\subsubsection{Begrundelse}
+Når man har med kode, der hele tiden ændres, så er det en god idé at Unit Teste sin kode, for at sikre at funktionaliteten ikke ødelægges. Derudover er det en god måde at finde fejl i sin kode, samt teste at den gør det, der forventes af den.
+\subsubsection{Anvendelse af biblioteket}
+Frameworket er kun inkluderet i Test-projekter, hvilket vil sige Unittest- og Integrationstest-projekterne. Disse projekter gør brug af frameworket til at teste, det kode der er lavet i de andre projekter.
+
+\subsection{NSubstitute}
+NSubstitute\footnote{https://nsubstitute.github.io/} er et mocking bibliotek for .NET, der gør det nemt at mocke sine afhængigheder. Det vil altså sige, at man kan teste om afhænighederne bliver kaldt på den rigtige måde. 
+\subsubsection{Begrundelse}
+Da der ikke er fokus på, hvor godt man kan skrive mocks til sin kode, så er det ikke tiden og umagen værd at bruge tid på det. Derfor anvendes et bibliotek til at gøre det for os.
+\subsubsection{Anvendelse af biblioteket}
+Når man har en afhængighed, som f.eks. noget validering af nogle bruger inputs, så kan man se om objekterne modtager de rigtige parameter. Det kunne f.eks se ud som i listing  \ref{lst:nsub_test}.
+\begin{lstlisting}[caption={Oprettelse af en side med tilhørende ViewModel}, label={lst:nsub_test},style=customc]
+    [TestCase("1234")]
+    [TestCase("")]
+    [TestCase("asdf1234")]
+    [TestCase("asdf.!#")]
+    public void PasswordSecureString_SetPropertyTwice_ValidatorOnlyCalledOnce(string password)
+    {
+        var passwordSecureString = password.ConvertToSecureString();
+        _fakePaswwordValidator.ValidationErrorMessages.Returns(new List<string>() { "test" });
+        _fakePasswordMatchValidator.ValidationErrorMessages.Returns(new List<string>() { "test" });
+
+        _uut.PasswordSecureString = passwordSecureString;
+        _uut.PasswordSecureString = passwordSecureString;
+
+        _fakePaswwordValidator.Received(1).Validate(Arg.Any<SecureString>());
+    }
+\end{lstlisting}
+\end{document}

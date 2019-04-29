@@ -1,0 +1,35 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+\input{Setup/Preamble.tex}
+\def\titlename{Afgrænsning}
+
+\begin{document}
+\section{Afgrænsning}
+\subsection*{Indledning}
+I dette projekt har vi løbende haft flere overvejelser til hvordan projektets skal laves, hvilke features og operationer som skal opfyldes, samt overholdning af lov og tekniske krav. Det har ikke været muligt at tilføje alle elementer. I dette afsnit beskrives afgrænsningerne for projektet.
+
+\subsection{Data Kryptering}
+En af disse ting er kryptering af data. Vi har valgt ikke at implementere dette, fordi det vil medføre et alt for stor arbejdsbyrde uden at det vil tilføje meget til vores endelige produkt i forhold til udførelsen af projektet. Hvis vi havde mere ekspertise omkring kryptering eller længere tid til at undersøge emnet kunne det være godt at have med i produktet da det ville give et trin imod et mere 'færdigt' produkt, men vi har valgt ikke at tage denne del med for at bedre kunne producere et produkt der 'virker'. 
+
+\subsection{Billokation}
+Det har været til overvejelse, at tilføje et GPS-program, som kunne angive bilens lokation (Angivet af udlejeren eller brugeren), men efter videre undersøgelse, er dette forkastet i første omgang. Her vælges prioritering af de logiske operationer, og lokation af bilen nøjes med at være en besked fra lejer/udlejer. 
+
+\subsection{Webapplikation eller platforms uafhængigapplikation}
+I første udkast af systemet, var det valgt at lave både en webapplikation, som kunne tilgås gennem en browser, samt en applikation, som var platformsuafhængig. Men efter evaluering af tidsresourser, valgte vi at nøjes med en applikation begrænset til en platform - tanken om både web- og platformsuafhængig applikation er for at konkurrere med GoMore, som har netop disse karakteristika.
+
+\subsection{Desktop Application}
+Vi har valgt i gruppen at lave en desktop application til at starte med, til implementeringen af dette har vi valgt at bruge WPF. Vi har valgt at lave en desktop application, fordi vi besluttede os for ikke at lave produktet som en hjemmeside og ingen i gruppen, set bort fra et enkelt medlem, har haft nogen undervisning i at lave applicationer til mobiler. 
+
+\subsection{User stories frem for Use cases}
+En ting vi også har valgt ikke at tage med i den første del af projtet er at lave use cases. Vi har erfaret i tidligere projekter at disse use cases ender med at kræve ressourcer senere i forløbet fordi de skal rettes. På grund af dette har vi valgt at lave user stories i stedet for,  som er en mere uspecifik alternativ der giver os et større 'wriggleroom' senere i forløbet når vi skal lave kravsspecifikations test. User stories bruges til at give et abstrakt billede af systemet, og fokuserer på at skabe markedsværdi for kunden, samt se systemet fra brugerens perspektiv - de er derved mindre stringent end use cases. 
+
+\subsection{Udlejningsproces}
+Vi sætter rammerne og formaliteterne for udlejningsprocessen, men det er op til lejeren og udlejeren selv at udforme en udveksling af bil. Dette vil i første omgang ske gennem brugernes telefon eller email - hvis vi finder ekstra tid kan et kommunikationssystem etableres, fx P2P.
+
+\subsection{Forsikring og Lov}
+Hele forsikringsproceduren undlades i dette projekt, da vi ikke har nok forudsætninger til at definere og udforme en forsikringskontrakt med et eksternt firma eller etablere en internt. Hvis produktet skulle markedsføres er dette en afgørende faktor. 
+En anden ting som skulle tilføjes er validering af ens profil. Dette kunne fx gøres med NEM-Id eller andre identifikationsmidler. Biler har ofte en stor markedsværdi, og det er derfor essentielt at garantere en sikker og tryg udlejningsproces - både for lejeren af bilen og udlejeren.
+
+\subsection{Personaanalyse og Markedsføring}
+Da projektets kravspecifikation tager udgangspunkt i personas (User stories), ville det have været ideelt at have foretaget en segmeneteringsanalyse, så heterogene medlemsbaser kunne opdeles ud fra forskellige karakteristika. Ud fra denne analyse kunne vi have fundet og etableret vores målgruppe, og derved specificeret de essentielle elementer for systemet; hvordan rammer vi kunderne, og hvordan skiller vi os fra konkurrenten 'GoMore'. Ud fra undersøgelser baseret på TrustPilot reviews, udledes at brugerne er utilfreds med to punkter: Afgifter og mangel på tryghed/sikkerhed gennem deres udlejningsportal. Selvom vi tilføjer disse to elementer til vores produkt, kan GoMore let sænke deres udgifter for at konkurrencer med vores system, samt holde dominans på markedet. Hvis 'CarnGo' skal blive kommercialiseret, er det nødvendigt at tilføje noget nyt og innovativt for at tiltrække kunder - GoMore har allerede en stor brugerbase. \\\\
+Systemets afgrænsninger er nu defineret, og det er nu vigtigt at kigge på udviklingsprocessen af projektet. Dette beskrives i næste afsnit. 
+\end{document}

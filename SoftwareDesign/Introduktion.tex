@@ -1,0 +1,10 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+
+\begin{document}
+\section{Introduktion}
+\textbf{Model-View-ViewModel:}\\
+I dette afsnit beskrives softwaredesignet for applikationen CarnGo. Applikationen baserer sig på et design mønster kaldet Model-View-ViewModel (MVVM), som er et ofte anvendt mønster inden for WPF. Et View er ansvarlig for UI-delen af applikationen og håndterer bruger input. Det vil altid have en form for relation til en ViewModel, som indeholder præsentationslogikken. Viewmodels kan også ses som en specialisering af modellen, og de muliggør databinding og brugen af commands. Modellen indeholder forretningslogikken og data for applikationen, når den kører. Den grundlæggende idé med MVVM er, at modellen ikke kender til ViewModel, samt at ViewModel ikke har kendskab til Viewet. Dermed får man en lavere kobling og 'separation of concerns', som er en af de største fordele ved brug af mønsteret. En anden fordel ved brugen af MVVM er, at man får et testbart design. Hvis ViewModel ikke er afhængig af Viewet, og der ikke er kode i Viewets code-behind fil, kan der nemmere udføres automatiserede unit tests. En yderligere grund til at CarnGo anvender MVVM er, at applikationen lettere vil kunne overføres til andre platforme. Model og Viewmodel kan bygges til at køre på alle platforme, hvorimod Viewet skal tilpasses den specifikke platform. Der er således mange fordele ved brug af MVVM, og i det følgende beskrives mønsterets anvendelse i applikationen, herunder de konkrete Views og ViewModels samt generelle design overvejelser.\\\\
+\textbf{Database:}\\
+For at kunne opbevare alt bruger interaktion, er det nødvendigt at have et filsystem. Hertil designes en relationel database, som skal gøre det muligt at opbevare data og give flere klienter adgang til disse data. 
+
+\end{document}

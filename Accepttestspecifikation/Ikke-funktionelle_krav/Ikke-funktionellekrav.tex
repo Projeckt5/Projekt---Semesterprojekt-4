@@ -1,0 +1,94 @@
+\documentclass[Accepttestspecifikation/Accepttest_Main.tex]{subfiles}
+\begin{document}
+
+\section{Accepttest - Ikke funktionelle krav}\label{sec:Ikkefunktionel}
+
+
+\subsection{Functionality}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K1.1 & CarnGo applikationen skal aldrig fryse, dvs. ophøre med at respondere påbrugerens input, i mere end 3 sekunder af gangen &  &  &  \\ \hline
+K1.2 & CarnGos knapper skal reagere, når der bliver sluppet på knappen &  &  &  \\ \hline
+K1.3 & CarnGo skal anvende GPS koordinater, så brugere kan leje biler baseret på deres lokalitet & Ikke implementert & Ikke testet & N/A \\ \hline
+K1.4 & CarnGo skal give brugere mulighed for, at kommunikere indbyrdes gennem en chat tjeneste &  &  &  \\ \hline
+\end{tabular}
+\end{table}
+
+
+\subsection{Usability}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K2.1 & CarnGo applikationen skal have en blå farve som hovedtema med farvekoden: \#397be5  & Det tas et skjermbilde av applikationen hvor fargen avleses i photoshop & Fargen avleses til \#397be5 &  \\ \hline
+K2.2 & CarnGo applikationen skal have en hvid farve som baggrundsfarve med farvekoden: \#fafafa & Det tas et skjermbilde av applikationen hvor fargen avleses i photoshop & Fargen avleses til \#fafafa &  \\ \hline
+K2.3 & CarnGo applikationen skal have en grå farve som forgrundsfarve med farvekoden: \#686868  & Det tas et skjermbilde av applikationen hvor fargen avleses i photoshop & Fargen avleses til \#686868 &  \\ \hline
+K2.4 & CarnGos typografi skal ha et kontrastforhold over 4.5:1 for å følge WCAG AA standarden & Det tas et skjermbilde av applikationen hvor bakgrunns fargen og tekst fargen avleses i photoshop denne dataen blir brukt til å regne kontrastforholdet & Begregningen viser et kontrastforhold av 4.5:1 eller over &  \\ \hline
+K2.5 & CarnGo skal kun have typografitypen Roboto & Typografien i CarnGo sammenlignes med Roboto & Typografien i CarnGo stemmer overens med Roboto &  \\ \hline
+K2.6 & CarnGo's typografi skal ikke have en punktstørrelse mindre end 10 &  &  &  \\ \hline
+K2.7 & CarnGo's typografi skal ikke have en punktstørrelse større end 30 &  &  &  \\ \hline
+K2.8 & CarnGo's GUI elementer skal skalere uniformt & Størrelsen på CarnGo vinduet endres & GUI elementene skalerer uniformt &  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{Reliability}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K3.1 & CarnGo skal håndtere 10 aktive brugere af applikationen på samme tid  & CarnGo applikasjonen åpnes 10 ganger på forkjellige maskiner hvor alle brukerene søker på en bil & Brukerne får resultatene innenfor 10 sekunder &  \\ \hline
+K3.2 & CarnGo skal håndtere 20 inaktive brugere af applikationen på samme tid  & Det logges inn på CarnGo på 20 forskellige brukere på samme tid & Alle brukerne opprettholder kontakten med CarnGo serveren &  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+\subsection{Reliability}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K4.1  & CarnGo skal være klar til brug inden for 10 sekund efter, at applikationen åbnes  & Det spilles inn en video hvor CarnGo åpnes, videoen avleses for å se åpnings tiden & Åpnings tiden er under 10 sekunder &  \\ \hline
+K4.2  & CarnGo skal give respons inden for 10 sekunder, når en søgning foretages &  Det spilles inn en video hvor brukeren søker på en bil i CarnGo, videoen avleses for å se respons tiden & Respons tiden er under 10 sekunder &  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Maintainability}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K5.1  & CarnGo's GUI kode skal følge et GUI design pattern, der gør det nemt at overføre til andre platforme  &  &  &  \\ \hline
+K5.2  & CarnGo skal kunne tilgås på en PC med internet forbindelse og Windows 10 OS  & CarnGo åpnes på en PC om kjører Windows 10 og logger inn & Applikasjonen åpner og brukeren blir logget inn &  \\ \hline
+K5.3  & CarnGo's typografitype skal være gratis  &  &  &  \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{Security}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.07\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|L{0.2\textwidth}|}
+\hline
+\textbf{Krav ID} & \textbf{Krav} & \textbf{Test} & \textbf{Forventet Resulat} & \textbf{Faktisk Resultat} \\ \hline
+K6.1  & CarnGo skal censurere brugerens password, når der logges ind på applikationen & Det inntastes et passord i passord feltet på loggin siden & Passordet sensureres &  \\ \hline
+K6.2  & CarnGo skal anvende kryptering, ved behandling af brugernes data & Ikke implementert & Ikke testet & N/A \\ \hline
+\end{tabular}
+\end{table}
+
+
+\end{document}    

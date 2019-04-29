@@ -1,0 +1,28 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+\input{Setup/Preamble.tex}
+
+\def\titlename{Rapport}
+
+\begin{document}
+\input{Setup/Forside.tex}
+\subfile{Rapport/Versionshistorik/Versionshistorik.tex}\newpage 
+\subfile{Rapport/Ansvarsomraader/Ansvarsomraader.tex}\newpage
+\subfile{Rapport/Abstract/Abstract.tex} \newpage 
+\tableofcontents \newpage 
+\subfile{Rapport/Forord/Forord.tex}
+\subfile{Rapport/Indledning/Indledning.tex}
+\subfile{Rapport/Kravspecifikation/Krav.tex}
+\subfile{Rapport/Afgraensning/Afgraensning.tex}
+\subfile{Rapport/Metode_og_Proces/Proces.tex}
+\subfile{Rapport/Analyse/Analyse.tex}
+\subfile{Rapport/Arkitektur/Arkitektur.tex}
+\subfile{Rapport/SoftwareDesign/SoftwareDesign.tex}
+\subfile{Rapport/Implementering/Implementering.tex}
+\subfile{Rapport/Tests/SoftwareTests.tex}
+\subfile{Rapport/Konklusion/Konklusion.tex}
+\subfile{Rapport/Fremtidigt_arbejde/Fremtidigt_arbejde.tex}
+\subfile{Rapport/Bilag/Bilag.tex}
+\printbibliography
+
+
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass[a4paper,12pt,fleqn,oneside]{article} 
+\input{Setup/Preamble.tex}
+
+\def\titlename{Kravspecifikation}
+
+\begin{document}
+
+%===============FORSIDE======================
+\input{Setup/Forside.tex}
+\tableofcontents \newpage 
+\subfile{Kravspecifikation/Versionshistorik/Versionshistorik.tex}\newpage
+\subfile{Kravspecifikation/Funktionelle_krav/ActorContext/ActorContext.tex}\newpage
+\subfile{Kravspecifikation/Funktionelle_krav/UserStories/UserStories.tex}\newpage 
+\subfile{Kravspecifikation/Ikke-funktionelle/Ikke-funktionellekrav} \newpage
+\newpage
+
+\printbibliography
+
+\end{document}

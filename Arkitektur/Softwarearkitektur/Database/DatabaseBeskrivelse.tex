@@ -1,0 +1,10 @@
+\documentclass[Arkitektur/System_main.tex]{subfiles}
+\begin{document}
+\section{Database beskrivelse}
+Databasen for CarnGo skal kunne håndtere biludlejere (Herefter refereret til som til som udlejere), bil lejere (Herefter refereret til som lejere) og biler.
+Udlejere ejer biler, og lejere kan leje biler i bestemte tidsintervaller valgt af udlejer.
+Biler skal være tilknyttet en udlejer, som kun kan lejes til \textbf{en} lejer ad gangen og skal kunne blive midlertidigt reserveret af lejere uden samtykke fra udlejere imens en anmodning om at leje bilen behandles. Bilen skal frigives fra midlertidigt reservering når udlejer godkender eller afviser udlejningen. Hvis udlejningen godkendes, skal bilen markeret som udlejet i det angivne tidsinterval. Biler skal have nummerplade og i hvilken stand sidste bruger af den efterlod den i. Biler skal også have biltype, området bilen kan hentes fra, om den har anhængertræk, vægt, højde, bredde og i hvilke tidsintervaller det er muligt at leje den, så lejere kan søge efter den bil de vil have og i hvilke af de mulige tidsintervaller bilen allerede er udlejet.
+Udlejere må have så mange biler de vil, og lejere må leje så mange biler de vil. Både lejere og udlejere skal have kontaktinformation, kørekortnummer og navn.
+Databasen skal også understøtte funktionaliteten hvor lejer skriver en besked til Udlejer om at leje en af deres biler i et bestemt tidsinterval og udlejer skriver en besked tilbage hvis de ikke afviser anmodningen.
+
+\end{document}

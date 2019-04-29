@@ -1,0 +1,102 @@
+\documentclass[Kravspecifikation/Kravspec_Main.tex]{subfiles}
+\begin{document}
+
+\section{FURPS-analyse}
+I dette afsnit analyseres kravene for CarnGo ved hjælp af FURPS. FURPS-modellen anvendes til at klassificere funktionelle- og ikke funktionelle krav, alt efter om de vedrører systemets funktionalitet (F), brugbarhed (U), pålidelighed (R), ydelse (P) eller support (s). Dette kombineres med en MoSCoW-analyse, som fastlægger kravets prioritet, dvs. om kravet skal, bør, kan eller ikke vil blive opfyldt. Bemærk at Functionality-kategorien er medtaget for at supplere de mere uformelle user stories. De resterende kategorier vedrører ikke-funktionelle krav.
+
+\subsection{Functionality}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{} & CarnGo applikationen skal aldrig fryse, dvs. ophøre med at respondere på brugerens input, i mere end 3 sekunder af gangen & M \\ \hline
+ \subreq{}& CarnGos knapper skal reagere, når der bliver sluppet på knappen & S \\ \hline
+ \subreq{}& CarnGo skal anvende GPS koordinater, så brugere kan leje biler baseret på deres lokalitet & C \\ \hline
+ \subreq{}& CarnGo skal give brugere mulighed for, at kommunikere indbyrdes gennem en chat tjeneste & C \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for funktionalitet}
+\label{tab:funktionalitet}
+\end{table}
+
+
+\subsection{Usability}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{} & CarnGo applikationen skal have en blå farve som hovedtema med farvekoden: \#397be5 & M \\ \hline
+\subreq{} & CarnGo applikationen skal have en hvid farve som baggrundsfarve med farvekoden: \#fafafa & M \\ \hline
+\subreq{} & CarnGo applikationen skal have en grå farve som forgrundsfarve med farvekoden: \#686868 & M \\ \hline
+\subreq{} & CarnGos typografi skal ha et kontrastforhold over 4.5:1 for å følge WCAG AA standarden & M \\ \hline
+\subreq{} & CarnGo skal kun have typografitypen Roboto & M \\ \hline
+\subreq{} & CarnGo's typografi skal ikke have en punktstørrelse mindre end 10 & M \\ \hline
+\subreq{} & CarnGo's typografi skal ikke have en punktstørrelse større end 30 & M \\ \hline
+\subreq{} & CarnGo's GUI elementer skal skalere uniformt & S \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for brugbarhed}
+\label{tab:brugbarhed}
+\end{table}
+
+
+\subsection{Reliability}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{} & CarnGo skal håndtere 10 aktive brugere af applikationen på samme tid & S \\ \hline
+\subreq{} & CarnGo skal håndtere 20 inaktive brugere af applikationen på samme tid & S \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for pålidelighed}
+\label{tab:pålidelighed}
+\end{table}
+
+\subsection{Reliability}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{}  & CarnGo skal være klar til brug inden for 10 sekund efter, at applikationen åbnes & M \\ \hline
+\subreq{}  & CarnGo skal give respons inden for 10 sekunder, når en søgning foretages & S \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for ydelse}
+\label{tab:performance}
+\end{table}
+
+\subsection{Maintainability}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{}  & CarnGo's GUI kode skal følge et GUI design pattern, der gør det nemt at overføre til andre platforme & M \\ \hline
+\subreq{}  & CarnGo skal kunne tilgås på en PC med internet forbindelse og Windows 10 OS & M \\ \hline
+\subreq{}  & CarnGo's typografitype skal være gratis & S \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for vedlikeholdbarhet}
+\label{tab:vedlikeholdbarhet}
+\end{table}
+
+\subsection{Security}
+\refstepcounter{req}
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{0.1\textwidth}|L{0.6\textwidth}|L{0.15\textwidth}|}
+\hline
+\textbf{ID} & \textbf{Krav} & \textbf{Prioritet} \\ \hline
+\subreq{}  & CarnGo skal censurere brugerens password, når der logges ind på applikationen & M \\ \hline
+\subreq{}  & CarnGo skal anvende kryptering, ved behandling af brugernes data & W \\ \hline
+\end{tabular}
+\caption{Ikke funktionelle krav for sikkerhed}
+\label{tab:sikkerhet}
+\end{table}
+
+\end{document}

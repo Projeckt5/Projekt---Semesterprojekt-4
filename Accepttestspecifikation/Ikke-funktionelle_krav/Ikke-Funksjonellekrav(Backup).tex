@@ -1,0 +1,87 @@
+
+\begin{document}
+
+\section{Accepttestspecifikation}
+
+\begin{table}[H]
+	\centering 
+	\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|} % Afstem antal tegn og kolonner! (l for venstre, c for center, r for højre, | for lodret streg) 
+		\toprule 	% Vandret streg
+		\multicolumn{5}{|l|}{\textbf{Ikke-funktionelle krav: Functionality:}}\\\midrule
+			\textbf{Krav under test} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Faktisk observation} & \textbf{Vurdering (OK/Fail)} \\ \midrule 	% Linjeskift og vandret streg
+		1: Censurering af skrift  &Der bliver skrevet i password boksen & Det indtastet bliver censureret &  &   \\ \hline
+		2: Funktionelle GUI elementer  & Der trykkes på knappen 'Søg efter udlejningsbil' & Søgningvindue dukker op  & &  \\ \hline
+		3: Google Chrome browser  & BilnB URL bliver indtastet i Chrome & Ankommelse til BilnB hjemmesiden indlæses korrekt  & & \\ \hline
+		4: Mozilla Firefox browser  &  BilnB URL bliver indtastet i Firefox & BilnB hjemmesiden indlæses korrekt  & &  \\ \hline
+		5: Safari browser  & BilnB URL bliver indtastet i Safari & BilnB hjemmmesiden indlæses korrekt & &   \\ \hline
+		6: Knap aktivering & Der trykkes på knappen 'Søg efter udlejningsbil' & Knappen reagerer først når der gives slip på trykket &  &   \\ \hline
+		7: GPS koordinater & Benyt GPS funktionen & Viser nærmeste biludlejer & & \\ \hline
+		8: Chat tjeneste & Benyt chat funktionen & Lejer og udlejer kan kommunikere gennem chat & & \\ \hline
+\bottomrule
+	\end{tabular} 
+	\caption{Accepttest for ikke-funktionelle krav: Functionality } 
+	\label{tab:Accept_Func} 
+\end{table}
+
+
+\begin{table}[H] 
+	\centering 
+	\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|} % Afstem antal tegn og kolonner! (l for venstre, c for center, r for højre, | for lodret streg) 
+		\toprule 	% Vandret streg
+		\multicolumn{5}{|l|}{\textbf{Ikke-funktionelle krav: Usability:}}\\\midrule
+			\textbf{Krav under test} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Faktisk observation} & \textbf{Vurdering (OK/Fail)} \\ \midrule 	% Linjeskift og vandret streg
+		1: Typografi farve  & Observerer hjemmesiden  & Typografiens farve er i kontraskt med sin baggrunden &  &   \\ \hline
+		2: Typografitype  & Observerer hjemmesiden  & Der er kun en typografitype  & &  \\ \hline
+		3: Typografistørrelse  & Observerer hjemmesiden & Der er ingen Typografi under punktstørrelsen 10  & & \\ \hline
+		4: Uniformt skalering  &  Ændre vinduetørrelsen  & Hjemmesiden skalere uniformt  & &  \\ \hline
+\bottomrule
+	\end{tabular} 
+	\caption{Accepttest for ikke-funktionelle krav: Usability} 
+	\label{tab:Accept_Use} 
+\end{table}
+
+\begin{table}[H] 
+	\centering 
+	\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|} % Afstem antal tegn og kolonner! (l for venstre, c for center, r for højre, | for lodret streg) 
+		\toprule 	% Vandret streg
+		\multicolumn{5}{|l|}{\textbf{Ikke-funktionelle krav: Reliability:}}\\\midrule
+			\textbf{Krav under test} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Faktisk observation} & \textbf{Vurdering (OK/Fail)} \\ \midrule 	% Linjeskift og vandret streg
+		1: 10 online brugere & 10 brugere logger ind på hjemmesiden samtidigt & Hjemmesiden håndterer trafikken uden problemer  & &  \\ \hline
+\bottomrule
+	\end{tabular} 
+	\caption{Accepttest for ikke-funktionelle krav: Reliability} 
+	\label{tab:Accept_rel} 
+\end{table}
+
+\begin{table}[H] 
+	\centering 
+	\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|} % Afstem antal tegn og kolonner! (l for venstre, c for center, r for højre, | for lodret streg) 
+		\toprule 	% Vandret streg
+		\multicolumn{5}{|l|}{\textbf{Ikke-funktionelle krav: Performance:}}\\\midrule
+			\textbf{Krav under test} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Faktisk observation} & \textbf{Vurdering (OK/Fail)} \\ \midrule 	% Linjeskift og vandret streg
+		1: Åbning af applikation  & Indlæs BilnB  & Applikationen indlæses inden for 10 sekunder &  &   \\ \hline
+		2: Søge respons  & lav en søgning  & et søgeresultat kommer inden for 10 sekunder  & &  \\ \hline
+\bottomrule
+	\end{tabular} 
+	\caption{Accepttest for ikke-funktionelle krav: Performance} 
+	\label{tab:Accept_Per} 
+\end{table}
+
+\begin{table}[H] 
+	\centering 
+	\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|} % Afstem antal tegn og kolonner! (l for venstre, c for center, r for højre, | for lodret streg) 
+		\toprule 	% Vandret streg
+		\multicolumn{5}{|l|}{\textbf{Ikke-funktionelle krav: Supportability:}}\\\midrule
+			\textbf{Krav under test} & \textbf{Handling} & \textbf{Forventet Resultat} & \textbf{Faktisk observation} & \textbf{Vurdering (OK/Fail)} \\ \midrule 	% Linjeskift og vandret streg
+		1: GUI design pattern & Kildekoden inspiceres  & Der er anvendt et GUI design pattern &  &   \\ \hline
+		2: PC med internet forbindelse  & BilnB URL indtastes i web browser på en PC med internet forbindelse & BilnB hjemmesiden indlæses korrekt & &  \\ \hline
+		3: Smartphone med internet forbindelse & BilnB URL indtastes i web browser på en Smartphone med internet forbindelse & BilnB hjemmesiden indlæses korrekt & & \\ \hline
+		4: Gratis typografitype & & & &  \\ \hline
+\bottomrule
+	\end{tabular} 
+	\caption{Accepttest for ikke-funktionelle krav: Supportability} 
+	\label{tab:Accept_Sup} 
+\end{table}
+
+
+\end{document}    
