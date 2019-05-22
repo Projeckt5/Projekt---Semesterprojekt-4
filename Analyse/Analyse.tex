@@ -34,6 +34,17 @@ Ulemper: \\
     \item Ingen undervisning i Xamarin, alt skal undersøges selv
 \end{itemize}
 Ud fra ovenstående argumenter, valgte vi at lave en WPF applikation. Der er begrænset tid i løbet af et semesterprojekt, så det at have mulighed for at få hjælp af en faglærer, samt løbende at få mere erfaring for WPF, er en kæmpe fordel. Hvis derimod projektet skulle blive kommercialiseret, ville det have været nødvendigt at lave en applikation til alle platforme, for at konkurrere med GoMores platformuafhængige applikation. 
+\subsubsection{MVVM}
+MVVM arkitekturen gør det muligt at holde applikationens forretnings- og præsentationslogik adskilt. Arkitekturen består af tre kernekomponenter: View, ViewModel og Model (se figur \ref{fig:MVVM_pic}) \\\\
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.90\textwidth]{Rapport/Analyse/graphics/MVVM.png}
+    \caption{MVVM arkitektur}
+    \label{fig:MVVM_pic}
+\end{figure}
+\textbf{Views} indkapsler brugeroverflade og dets logik. View'et er de visuelle elementer, som præsenteres for brugeren. \\
+\textbf{ViewModels} indholder præsentationslogikken og dets stadie. Det har ingen direkte reference til View'et. ViewModellen indeholder properties og kommandoer, som databindes til View'et. View'et bestemmer, hvordan funktionalitetet skal gengives, hvor ViewModeller har til ansvar at koordinere View'ets interaktion med systemets data og modeller\\
+\textbf{Modeller} indeholder applikationens forretningslogik og -data. Dette kan være hentning og administration af applikationsdata og for at sikre at forretningsregler, der sikrer datakonsistens og -gyldighed, bliver overholdt. 
 
 \subsubsection{Fonts}
 Normalt er det først i designfasen, hvor man udvælger og definerer, hvilke fonts man bruger til de forskellige vinduer. Det er dog ikke alle fonts, som er gratis eller indbygget i WPF. Der bruges derfor kun fonts, som er gratis og indbygget i WPF. 
@@ -41,27 +52,10 @@ Normalt er det først i designfasen, hvor man udvælger og definerer, hvilke fon
 \subsection{Database:}
 I dette afsnit beskrives de overvejelser, der har været i forhold til kreationen af databasen. Heri undersøges både lagring af data i form af database udbyder, samt hvordan data traditionelt overføres mellem brugere. 
 \subsubsection{Valg af kommunikationstype}
+
 \textbf{Interval polling \& event queries}\\
-En udfordring med en GUI som er tilsluttet en database i dens model-lag er hvor synkroniseret disse skal være. Der startes med at definere vores mål og ønsker og problematikkerne ved at opnå disse. \newline
-
-Vi ønsker at brugeren ikke ser forældet data, og derved forsøger at leje biler der allerede er lejet, eller ser en liste af biler som ikke længere er tilgængelige.\newline
-
-Den naive, og set fra et User Experience synspunkt nemmeste løsning, er at polle databasen oftere en brugeren kan forventes at tage beslutninger baseret på det info de ser i GUI'ens view, en gang i sekundet for eksempel. Vores applikation er dog lavet til at mange brugere skal køre hver deres instans af applikationen og siden vi ikke har mulighed for at distribuere vores database over flere servere ville dette hurtigt overvælde databasen.\newline
-
-I stedet for vælges det at opdatere GUI'ens lokale data når visse handlinger tages. Disse kan være at skifte til et andet view, så når brugeren klikker på en bestemt bil eller bringer en liste af biler frem er disse just opdaterede.\newline
-
-Et problem med denne løsning er at det forudsætter en aktiv bruger, hvilket applikationen ikke kræver. Det er fuldt muligt for en bruger at have applikationen stående inaktiv længe og komme tilbage timer eller dage senere og så se forældet data. Vi løser dette ved at polle databasen, dog med en meget større interval, og med en timer der nulstilles hver gang der sendes en forspørgsel på databasen.\newline
-
-Disse 2 løsninger sammen gør at GUI'ens lokale data aldrig er væsentligt forældet.
-
+Siden vi arbejder med en GUI som skal forbindes med databasen har vi valg at kombinere 2 måder at holde en applikation opdateret. Vi opdatere databasen når bestemte begivenhedder sker, og ved længere  polles. \\
 Vi har valgt en relationel database, da NOSQL er optimeret mere mod store mængder data af varierende type og mindre mod garantier for at data er fejlfri. Siden vi arbejder med relativt små mængder data som involvere personlig info er det vigtigere at data er garanteret for at være korrekt.
-Kilde: https://blog.pandorafms.org/nosql-vs-sql-key-differences/
-TODO(Should this be here?)
-
-
-
-
-%Bare skriv analyse direkte i dette dokument, ikke brug for subfiles 
 
 \printbibliography
 

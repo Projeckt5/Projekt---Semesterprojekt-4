@@ -1,23 +1,16 @@
 \documentclass[Arkitektur/System_main.tex]{subfiles}
 \begin{document}
 \section{Deployment View}
-\begin{figure}
+I dette afsnit beskrives det fysiske standpunkt af systemet. Her beskrives toplogien af software komponenter på det fysiske lag såvel som de fysiske forbindelser mellem disse komponenter. For at illustrere dette, er det lavet et deployment diagram.
+I diagrammet vises de tre lag applikationen opererer i, og hvordan hardware og softwarekomponenterne interagerer med hinanden: visualiseringen af hardwareprocessorne og placering af softwareelementer på pågældende hardware. 
+
+Lagene kan opdeles i tre 'tiers': Presentation, Business og Data.\\
+\begin{figure}[H]
     \centering
     \includegraphics[width=\linewidth]{Arkitektur/4+1View/Graphics/DeploymentDiagram.png}
     \caption{Deployment View}
 \end{figure}
+'Presentation tier' fremviser de dele af systemet, som brugeren interagerer med. Den første del er 'Windows User Client', som repræsenterer selve applikationen, som brugeren benytter - brugeren interagere via skærm, keyboard og mus (Grafisk brugeroverflade). Denne brugeroverflade visualiseres ved brug af frameworket WPF, den specifikke struktur er MVVM. Heri indgår også ViewModellerne, som angiver præsentationslogikken (Hvile data skal vises på den grafiske brugeroverflade). Presentatationsniveauet er forbundet til forretningslogikken. 'Business Tier' behandler den information og inputs, som sendes fra Client. "Execution enviroment' angiver eksekveres miljøet, som behandler alt informationen og udfører de logiske operationer omhandlende forretningslogikken - det kunne fx være validering eller kommunikation til databasen. Softwaren er skrevet i C\#.  
 
-For oven ses der et diagram der fremviser den fysiske forbindelse mellem vores program og de forskellige lag som applikationen operer i. 
-
-Disse lag kan opdeles i tre dele "Præsentation tier" som fremviser de dele af vores system som brugeren interagerer med. Den første del kan vi se at vores "Windows User Client" som repræsenterer selve applikationen som vores brugere benytter. Inde i den kan vi så se en box der indikerer hvordan denne User client er sat op. 
-
-I vores applikation specifikt bruger vi WPF til at kode brugergrænsefladen. Vi kan her se at WPF koden her er forbundet til vores C\# kode i det næste lager. 
-
-Det næste lager er vores "Buisness Layer" som er den del af vores applikation der tager informationen fra brugergrænsefladen og behandler den information for at så sende information tilbage til WPF koden sådan at brugeren kan se hvad der sker når de interagerer med GUI'en. 
-
-Dette er så den lokale Windows applikation der findes på brugerens PC, som indeholder vores "Execution Enviorement" der repræsenterer den del af vores applikation der udfører det funktionelle. 
-
-Buisness Tier er derfra forbundet til et Data Tier, som er den del af vores applikation der indeholder en database der gemmer på dataen vi modtager fra brugeren fra GUI'en igennem vores CarNGo.sln fil. I vores applikation har vi valgt at benytte en SQL server efter noget diskussion om hvor hvidt vi ville bruge noget andet men besluttede at bruge en SQL. 
-
-Vi bruger Entity Framework som et mellemled mellem vores database og resten af koden for at vi kan tage informationen fra C\# kode og sætte det ind i et SQL miljø. 
+Business Tier er forbundet til et Data Tier, som er den del af applikationen, der indeholder en database. Databasen gemmer informationer omkring brugeren og deres interaktioner i form af et beskedsystem. Til at opbevarer denne information anvendes Microsoft Azure, som er en cloudcomputing platform, der gør det muligt at lagre data. Databasen bliver realiseret gennem Entity Framework Core, hvor SQL bruges til implementeringen af opbevaringsstrukturen. EF Core gør det også muligt at skabe et bindeled mellem Business Tier og Data Tier. 
 \end{document}

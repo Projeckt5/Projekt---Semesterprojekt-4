@@ -1,6 +1,14 @@
-\documentclass[Rapport/Rapport_main.tex]{subfiles}
+7\documentclass[Rapport/Rapport_main.tex]{subfiles}
 \begin{document}
 \section{Fremtidigt arbejde}
+I denne seksjonen beskrives det fremtidige arbeidet som var planlagt hvis vi skulle videre utviklet produktet. Dette inkluderer kravene i kravspesifikasjonen som ikke har blitt implementert ennå (Se Kravspec \ref{sec:asdas}). Samt oppfølging på eventuelle problemene som oppstår under accepttest og integrasjons test.
 \subsection{Udvidelser}
+En av de store utvidelsene som var har tenkt på er å gjøre CarnGo til en webapplikasjon for å gjøre den mer tilgjengelig for brukere. Det ville også være mulig å overføre applikasjonen til en mobil plattform siden den er implementert med bruk at MVVM modellen. Andre eksempler på ting som ikke har blitt implementert som er del av MoSCoW analysen er kart/GPS funksjonaliteten som ville la leiere søke på biler i sitt nærområde samt la utleiere velge hvilket område de vil leie bilen sin ut i.\\
+
+En av de andre store planlagte utvidelsene var implementere er et fullt chat system mellom brukerne. Da ville CarnGo kunne fasilitere all kommunikasjon mellom brukerne isteden for bare en mulighet for dem til å utveksle kontakt informasjon.\\
+
+Det er også viktige utvidelser i forhold til sikkerheten av brukerdata som må være implementert for et eventuelt release. I applikasjonens nåværende tilstand oppbevares alt av brukerdata på databasen inkludert passord i klar tekst. I tillegg er ingen av meldingene sendt mellom brukere kryptert på noen måte når de blir lagret. Dette er åpenbart ikke akseptabelt for en applikasjon som dette.\\
+
+Det er også en del rom for forbedring i forhold til unittests til CarnGo applikasjonen. Hvor vil ville strebe etter en høyere coverage prosent en hva prosjektet har nå.
 
 \end{document}

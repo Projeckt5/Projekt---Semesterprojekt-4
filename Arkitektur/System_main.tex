@@ -15,16 +15,18 @@
 I dette afsnit beskrives system- og softwarearkitekturen for applikationen CarnGo. Der vises, som det første, et User Story distribution diagram, der beskriver hvordan de User Stories beskrevet i kravspecifikation kommer til udtryk i system- og softwarearkitekturen. Her samles en eller flere User Stories til en distribution. Der findes et system sekvensdiagram til hvert distribution, samt en applikationsmodel i software arkitekturen. For at beskrive arkitekturen af det softwareintensive system bruges 4+1 modellen. Modellen bruges til at beskrive systemet ud fra forskellige perspektiver:
 \begin{itemize}
     \item Logical View: Beskriver systemets funktionalitet, som leveret til slutbrugerene. Dette illustreres vha. applikationsmodeller. Da der laves en WPF-applikation er Model-view-viewmodel(MVVM) brugt til at beskrive software arkitekturen. 
-    \item Process View: Beskriver systemetprocesserne og hvordan de kommunikerer, samt systemets adfærd. Dette beskrives gennem systemsekvensdiagrammer. 
+    \item Process View: Beskriver systemetprocesserne og hvordan de kommunikerer, samt systemets adfærd. 
     \item Deployment View: For at beskrive systemkomponenterne anvendes et package diagram. 
     \item Physical View: Beskriver de fysiske lag såvel som de fysiske forbindelser mellem komponenter. Dette illustreres med et deployment diagram. 
-    \item Scenerier: Her bruges User Stories til at illustrere arkitekturen. USDD diagrammet viser hvordan scenerierne fra User Stories bliver samlet til en helhed, for at beskrive systemets forskellige elementer og funktionalitet (se figur \ref{fig:USDD} \\\\
-    \textbf{USDD diagrammet er ikke et foruddefineret værktøj}, men et der bliver brugt til at give overblik over hvordan User Stories bliver fordelt til systemfunktionalitet i dette projekt. Det har samme aspekter som et User Story Map, hvor User Stories bliver kategoriseret under et fælles "Epic" (overordnet tema).
+    \item Scenerier: Her bruges User Stories til at illustrere arkitekturen. USDD diagrammet viser hvordan scenerierne fra User Stories bliver samlet til en helhed, for at beskrive systemets forskellige elementer og funktionalitet (se figur \ref{fig:USDD}) \\\\
+    \textbf{USDD diagrammet er ikke et foruddefineret værktøj}, men et der bliver brugt til at give overblik over hvordan User Stories bliver fordelt til systemfunktionalitet i dette projekt. Det har samme aspekter som et User Story Map, hvor User Stories bliver kategoriseret under et fælles 'Epic' (overordnet tema).
     \item Security View: Der tilføjes også et sikkerheds view, som fokuserer på, hvordan systemet implementeres ud fra sikkerhedsmæssige elementer, og hvordan sikkerhed påvirker systemegenskaberne. 
 \end{itemize} \newpage 
 
-\subsection{Scenerier}
+\subsection{User Story Distribution Diagram}
 \subfile{Arkitektur/Softwarearkitektur/UserStoryArchitecture/USDD.tex}
+\newpage
+\subfile{Arkitektur/4+1View/Scenerier.tex}
 \newpage
 \subfile{Arkitektur/4+1View/LogicalView.tex}
 \newpage

@@ -5,7 +5,7 @@
 I dette afsnit præsenteres de eksterne software biblioteker, der er blevet anvendt til at udvikle systemet, samt begrundelsen for at inkludere dem i projektet.
 
 \subsection{Prism}
-Prism\footnote{https://prismlibrary.github.io/docs/} er et open source framework, der hjælper til udviklingen af XAML applikationer så det opfylder det MVVM arkitektur pattern. 
+Prism \footnote{https://prismlibrary.github.io/docs/} er et open source framework, der hjælper til udviklingen af XAML applikationer så det opfylder det MVVM arkitektur pattern. Der er i dette projekt benyttet prism Core version 7.1.0.431.   
 \subsubsection{Begrundelse}
 Da størstedelen af dette projekt omhandler udviklingen af en WPF applikation, giver det god mening at inkludere et framework, der laver en masse boiler plate kode, man ellers selv skulle skrive. Når man arbejder med MVVM er det strengt nødvendigt at anvende Commands, hvilket man får givet gennem dette framework. Derudover giver frameworket også en mulighed for kommunikation mellem ViewModels.
 \subsubsection{Anvendelse af biblioteket}
@@ -13,7 +13,7 @@ Fra frameworket anvendes der primært den DelegateCommand-klasse, der gør det m
 Derudover anvendes EventAggregator også, som den primære form for kommunikation mellem ViewModels. Den gør at man kan samle alle events, der går mellem ViewModels, som f.eks. en søgning fra HeaderBarViewModel, der skal sendes til SearchViewModel, på et sted. Denne anvendes i sammenspil med Unity, for at sikre at alle ViewModels får den samme instans af EventAggregator.
 
 \subsection{Unity}
-Unity\footnote{https://github.com/unitycontainer/unity/} er en Dependency Injection Container, også kaldet en Inversion Of Control Container, der faciliterer lav kobling i applikationen. Unity giver mulighed for at simplificere instantieringen af nye objekter, så andre klasser ikke skal. 
+Unity \footnote{https://github.com/unitycontainer/unity/} er en Dependency Injection Container, også kaldet en Inversion Of Control Container, der faciliterer lav kobling i applikationen. Unity giver mulighed for at simplificere instantieringen af nye objekter, så andre klasser ikke skal. Der er i dette projekt benyttet Unity version 5.10.3.  
 
 \subsubsection{Begrundelse}
 Når man bygger en MVVM applikation, så er der mange Dependencies, man skal kende til, samt hvordan man tilgår dem og anvender dem. Fordelen ved at bruge en Dependency Container er, at man som udvikler ikke skal tænke særlig meget over, hvordan man får fat i de nødvendige objekter. 
@@ -49,15 +49,31 @@ style=customc]
 
 Af listing \ref{lst:basepage} ses det at der i constructoren af BasePage sættes PageViewModel til \lstinline{IoCContainer.Resolve<TViewModel>()}. Det betyder, at man får IoCContainer til at finde ud af hvilke afhængigheder, som den ViewModel har, og få fat i dem alt efter nødvendighed. Det kunne eksempelvis være gennem constructor injection, hvilket kræver at afhængighederne er registreret med IoCContaineren. Det betyder også, at hvis man har de nødvendige klasser registreret rigtigt, så kan man bare putte dem som argumenter i Constructoren, og så frit anvende dem.
 
+
+
+\subsection{Entity framework core}
+EF core\footnote{https://docs.microsoft.com/en-us/ef/core/} er et framework, som bruges som en objekt-relationelle mapper. Der er i dette projekt benyttet Entity framework core version 2.2.4.  
+
+
+\subsubsection{Begrundelse}
+EF core gør det muligt at arbejde med en SQL database, med objekter og fjerner det meste data access kode, som der normalt skal laves.
+
+\subsubsection{Anvendelse af biblioteket}
+Dette framework bliver brugt til projektets modellag, som giver data acess til de diverse modeller. Et model består entity klasser og context objekter, som gør at man kan bruge queries og gemme data på databasen. Instanser af entity klasser bliver hentet for queries, og der bliver benyttet instanser af entity klasser til at lave, slette, og ændre data.  
+
+
+
+
+
 \subsection{NUnit}
-NUnit\footnote{https://nunit.org/} er et framework for unit-testing kode for .NET. 
+NUnit\footnote{https://nunit.org/} er et framework for unit-testing kode for .NET. Der bliver i dette projekt benyttet NUnit version 3.12.0.  
 \subsubsection{Begrundelse}
 Når man har med kode, der hele tiden ændres, så er det en god idé at Unit Teste sin kode, for at sikre at funktionaliteten ikke ødelægges. Derudover er det en god måde at finde fejl i sin kode, samt teste at den gør det, der forventes af den.
 \subsubsection{Anvendelse af biblioteket}
 Frameworket er kun inkluderet i Test-projekter, hvilket vil sige Unittest- og Integrationstest-projekterne. Disse projekter gør brug af frameworket til at teste, det kode der er lavet i de andre projekter.
 
 \subsection{NSubstitute}
-NSubstitute\footnote{https://nsubstitute.github.io/} er et mocking bibliotek for .NET, der gør det nemt at mocke sine afhængigheder. Det vil altså sige, at man kan teste om afhænighederne bliver kaldt på den rigtige måde. 
+NSubstitute\footnote{https://nsubstitute.github.io/} er et mocking bibliotek for .NET, der gør det nemt at mocke sine afhængigheder. Det vil altså sige, at man kan teste om afhænighederne bliver kaldt på den rigtige måde. Der bliver i dette projekt benyttet NSubtitute version 4.1.0. 
 \subsubsection{Begrundelse}
 Da der ikke er fokus på, hvor godt man kan skrive mocks til sin kode, så er det ikke tiden og umagen værd at bruge tid på det. Derfor anvendes et bibliotek til at gøre det for os.
 \subsubsection{Anvendelse af biblioteket}

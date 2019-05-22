@@ -7,7 +7,7 @@
 
 %===============FORSIDE======================
 \input{Setup/Forside.tex}
-\subfile{Test/Versionshistorik/Versionshistorik.tex}\newpage
+\subfile{TestDokument/Versionshistorik/Versionshistorik.tex}\newpage
 \tableofcontents
 \newpage
 
@@ -45,16 +45,30 @@ På grund af begrænsede ressourcer vil det oftest ikke være realistisk at lave
 \end{itemize}
 
 \subsection{Equivalence Partitions}
-Boundary Value Analysis (BVA) anvendes altid i kombination med Equivalence Partitions (PE). Equivalence Partitions er ligesom BVA en form for black-box testing, da de udelukkende betrager input og forventet output. Målet er at reducere mængden af tests gennem analyse. En EP er en del af alle mulige inputs, som resulterer i det samme output eller den samme form for opførsel. En EP er defineret af et sæt af boundary values, hvorfor BVA udføres før EP. Når Equivalence Partitions er identificeret, testes der med mindst én værdi fra hver EP (\textit{nødvendigt}). Der testes ikke med samtlige værdier fra en EP, da én eller få værdier vil være \textit{tilstrækkeligt}. Tilsammen hjælper Boundary Value Analysis og Equivalence Partitions med at sikre, at man udtænker de rigtige test cases og ikke tester for meget, og de er således et godt supplement til Coverage.
+Boundary Value Analysis (BVA) anvendes altid i kombination med Equivalence Partitions (EP). Equivalence Partitions er ligesom BVA en form for black-box testing, da de udelukkende betrager input og forventet output. Målet er at reducere mængden af tests gennem analyse. En EP er en del af alle mulige inputs, som resulterer i det samme output eller den samme form for opførsel. En EP er defineret af et sæt af boundary values, hvorfor BVA udføres før EP. Når Equivalence Partitions er identificeret, testes der med mindst én værdi fra hver EP (\textit{nødvendigt}). Der testes ikke med samtlige værdier fra en EP, da én eller få værdier vil være \textit{tilstrækkeligt}. Tilsammen hjælper Boundary Value Analysis og Equivalence Partitions med at sikre, at man udtænker de rigtige test cases og ikke tester for meget, og de er således et godt supplement til Coverage.
 
-\subsection{Zombie}
-
-
-
+\subsection{ZOMBIE}
+\textbf{ZOMBIE} er et akronym, der kan fungere som en guide for, hvad der skal testes, og hvilke overvejelser man kan gøre sig undervejs i test processen. \textbf{Z} står for Zero, og indikerer, at de første test scenarier bør være simple post-konditioner for nyligt oprettede elementer. F.eks. kan det testes, at en tom collection indeholder nul elementer, eller at der er nul kald af et nyoprettet objekt. \textbf{O} står for One som er den næste case, der bør testes. Når man går fra nul til ét input/output/action er der en række nye scenarier, der bør afprøves. F.eks. at et nyoprettet objekt har den rette tilstand efter ét kald af hver metode, eller tests af input for en collection med ét element. Når Zero og One cases er testet generaliseres scenariet, og der testes nu et Many scenarie (\textbf{M}) med mange inputs/outputs/actions. Eksempelvis testes objektets tilstand efter mange funktionskald og inputs testes for en collection med mange elementer. Man bør altså følge \textbf{ZOM}, så man går fra simple til mere komplekse testscenarier. \\\\\textbf{BIE}-delen af ordet står derimod for de overvejelser, man bør gøre sig undervejs, alt imens man sigter efter simplicitet i test scenarierne og løsningerne. \textbf{B} står for boundaries, da man bør teste grænseværdier og aktivt gøre brug af førnævnte Boundary Value Analysis og Equivalence Partitions. \textbf{I} står for Interfaces, hvilket indikerer, at man bør teste alle metoder, events, kaldte interfaces og afhængigheder. Begrebet Coverage som blev diskuteret ovenfor, kan være et brugbart hjælpemiddel til at sikre, at dette punkt er opfyldt. \textbf{E} står for Exceptional Behaviour, som dækker over uforventet opførsel, timeouts og generel fejlhåndtering. 
 
 \section{Integrationstest}
 
 \subsection{Dependency Tree}
+
+For at illustrere hvordan systemet hænger sammen er der lavet et Dependency Træ, dette diagram er for at illustrere de afhængigheder der findes mellem klasserne. Træet er også med til at fremvise hvilke dele af koden der udføres før andre. Dependency træer bruges også til at finde ud af hvilke dele af systemet der skal integrationstestes.
+
+På \ref{fig:CarnGo_Dependency Tree} ses der at View er afhængig af ValueConverters, dette betyder at det vil være relevant at teste integrationen mellem disse to da den ene har en indflydelse på den anden. Modsat skal Properties og ValueConverter ikke testes med hinanden da der ikke er en afhængighed. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{Rapport/Tests/DepedencyDiagramV2.png}
+    \caption{Dependency Træ for Systemet}
+    \label{fig:CarnGo_Dependency Tree}
+\end{figure}
+
+Systemet er på \ref{fig:CarnGo_Dependency Tree} fremvist sådan at mange af klasserne er samlet under ”mapper”, dette er gjort sådan at diagrammet giver et bedre overblik over systemet. 
+
+På diagrammet ses der at to af klasserne er bundet af en grå tyk linje, dette er for at indikere at disse to klasser har cirkulær afhængighed med hinanden. For systemet er dette ikke et godt design, men dette er blevet opdaget for sent inde i projektets forløb. 
+
 
 \subsection{Integrationsplan}
 

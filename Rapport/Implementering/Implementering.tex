@@ -1,4 +1,61 @@
 \documentclass[Rapport/Rapport_main.tex]{subfiles}
 \begin{document}
 \section{Implementering}
+
+\subsection{Introduktion}
+I følgende afsnit præsenteres overvejelserne der er blevet gjort i sammenhæng med implementeringen af systemet.
+Her præsenteres de valg der er blevet gjort med eksterne afhængigheder samt hvordan de gavner systemet. 
+Udover dette fremvises der valg der er blevet gjort i forhold til patterns under implementeringen af systemet. 
+
+\textbf{Solid:}\\
+Solid er i systemet brugt til at sørge for at koden er lettere at udvide, sørge for at den er fleksible samt at gøre systemets software design lettere at forstå, samt gøre dem mere fleksible samt øge vedligeholdelsen.
+
+Gruppen har forsøgt at implementere SOLID så tæt som muligt, men der kommet nogle udfordringer. En af disse udfordringer er at det generelt kan være en udfordring at implementere SOLID når systemet er designet på MVVM, dette er fordi systemets individuelle komponenter ofte ikke lever op til Single Responsibility. 
+
+ViewModel laget i systemet har også en del ansvar sammenlignet med præsentationslogikken og forholdet mellem systemets ViewModel og View er 1:1. 
+
+Fordelen ved at bruge SOLID principperne er at det mindsker risikoen for fejl i systemet hvis yderligere funktionalitet bliver tilføjet senere samt vedligeholdelsen af koden bliver forenklet, hvilket fører til en længere levetid for systemet.
+
+
+\subsection{Frameworks}
+Her fremvises de eksterne biblioteker der er blevet anvendt til systemudviklingen, samt begrundelsen for at bruge disse. Ud dybende beskrivelse af disse frameworks kan findes i dokumentationen.
+
+\textbf{Prism}\\
+Systemet bliver implementeret i en WPF-applikation, dette gør at Prism som indeholder boiler plate kode der medbringer funktioner som der kan bruges til applikationen uden at bruge ressourcer på at implementere det. Når man designer et program med MVVM er det også nødvendigt at arbejde med Commands, hvilket er noget af det kode Prism kommer med.  
+
+Disse commands er blevet brugt i systemet for at have en klar seperation mellem implementeringen af systemets "Buisness logic" og presentations lager
+
+\textbf{Unity}\\
+Når en applikation bygges med MVVM, så får man mange afhængigheder, man skal vide hvordan man tilgår. Fordelen ved brug at en Dependency Container er, udvikleren af systemet skal ikke tænke meget over hvordan systemet får fat i de objekter den skal bruge.
+
+Dette framework er blevet brugt for at der ikke skal bruges ressourcer på at holde styr på alle dependencies der forekommer i systemet, samt at sørge for at vi har en god decoupling i systemet. 
+
+\textbf{NUnit}\\
+NUnit er et framework for unit-testing af kode, unit-testing er vigtigt at implementere da det sikrer at hvis der kommer et problem i koden under ændring af funktionaliteten så kan det ses. Samt at teste om funktionaliteten af koden gør som forventet. Dette framework er blevet valgt fordi det er simpelt at bruge samt gruppen har brugt dette framework i andet kode. 
+
+\textbf{NSubstitute}\\
+NSubstitute er et ”Mocking” bibliotek, hvilket betyder den indeholder noget funktionalitet som gør at afhængighederne i systemet kan testes for at sikre sig at de bliver kaldt korrekt. 
+Fokuspunktet er ikke hvor godt mocks kan skrives til kode, så biblioteket er blevet brugt for at konservere ressourcer og fokusere på andre dele af systemet.   
+
+\subsection{Patterns}
+
+\textbf{Factory Pattern:} \\
+Factory pattern princippet går ud på at adskille danneslen af objekter fra bruget af dem. Dette koncept bruges når er laves IoC(Inversion of Control) i GoF Factory method defineres der et interface for dannelsen af objekter, men systemets klasserne der implementerer interfacet bestemmer hvilke objekter der skal instantieres. 
+
+Grunden til at dette gøres for at systemet er i stand til at omdefinere objekter igennem sub-klasser, samt at kunne opsætte instantiering for sub-klasser. 
+At lave et objekt direkte inde i en klasse er ufleksibelt da det forpligter en specifik klasse til det partikulære objekt.
+
+\textbf{Singleton pattern: } \\
+Singleton pattern princippet går ud på at designe kode sådan at kun en enkelt instans af en klasse kan eksistere ad gangen.  Ved at bruge dette pattern kan systemet håndtere antallet af instanser af en enkelt klasse, samt sørge for at den enkelte instans der ønskes let kan tilgås, hvilket gøres ved at sørge for at der er global adgang til instansen. 
+
+Singleton bruges også til implementeringen af andre patterns, inkluderet her er Factory method patterns. 
+
+\textbf{Strategy Pattern}
+
+Dette pattern er blevet brugt for at sørge for at systemet agilt kan skifte den funktionalitete der bliver benyttet. Dette er fordelagtigt i systemer hvor i forhold til hvilket ”state” systemet er i skal den kunne udføre forskelligt arbejde. 
+
+Dette gøres ved at definere en familie af algoritmer derefter indkapsle dem og gøre dem udskiftelige med hinanden under ”Runtime”. 
+
+Et strategy pattern tillader systemet at aktivære opførsel ved at delegere det til et andet objekt, dette kan gøres under ”Runtime” og gør det muligt at implementere funktioner der nu kan genbruges i systemet. 
+
 \end{document}
